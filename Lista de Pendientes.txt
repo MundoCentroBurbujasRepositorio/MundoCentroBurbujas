@@ -1,10 +1,14 @@
-*Requerimientos: 
-1.3. Objetivos y criterios de éxito del proyecto 
-1.4. Definiciones, siglas y abreviaturas 
-1.5. Referencias
 
-*Corregir modelo de dominio y modelo de entidad relacion
+* Objetivos y criterios de éxito del proyecto 
 
-*Actualizar bitacora y cronograma
+* Requerimientos Funcionales 
 
-*Modificar el contrato
+* Definiciones, siglas y abreviaturas 
+
+* Referencias
+
+* Corregir modelo de dominio y modelo de entidad relacion
+
+* Actualizar bitacora y cronograma
+
+* Modificar el contrato
