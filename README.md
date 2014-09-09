@@ -1,6 +1,1 @@
-MundoCentroBurbujas
-===================
-
-Trabajo de Analisis
-
-Hola mundo jajajaja
+Lista de Pendientes:
