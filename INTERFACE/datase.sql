@@ -44,6 +44,7 @@ create table users(
 	id int not null auto_increment primary key,
 	nis int(9)not null unique,  /*cedula*/
 	`name` varchar(50) not null,
+	`last_name` varchar(50) not null,
 	`street_address` varchar(100),
 	`phone` int(8),
 	`salary` int not null,
