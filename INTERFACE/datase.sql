@@ -47,7 +47,11 @@ create table users(
 	`street_address` varchar(100),
 	`phone` int(8),
 	`salary` int not null,
-	`usertype_id` int not null
+	`usertype_id` int not null,
+    `username` VARCHAR(50),
+    `password` VARCHAR(255),
+    `role` VARCHAR(20)
+
 );
 
 /* tipo de pago */
@@ -151,4 +155,3 @@ create table orders(
 /*
 Tablas merge join or join table
 */
-
