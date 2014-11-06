@@ -142,7 +142,21 @@ create table orders(
 	`paymenttype_id` int not null
 );
 
+/*Registros de usuarios(log)*/
+
+create table `logs`(
+
+	id int auto_increment not null primary key,
+	session_id text not null, /*Puede cambiar*/
+	ip_address text not null,
+	`user_id` int not null,
+	`action` text not null,
+	date_action datetime not null
+	
+
+);
 
 /*
 Tablas merge join or join table
 */
+
