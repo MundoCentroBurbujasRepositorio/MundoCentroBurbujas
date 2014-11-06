@@ -29,15 +29,6 @@ create table clients (
 
 );
 
-/* tipo de usuario */
-create table usertypes (
-
-	id int not null auto_increment primary key,
-	`name` varchar(50) not null,
-	`description` varchar(255)
-);
-
-
 /* usuario */
 create table users(
 
@@ -48,7 +39,6 @@ create table users(
 	`street_address` varchar(100),
 	`phone` int(8),
 	`salary` int not null,
-	`usertype_id` int not null,
     `username` VARCHAR(50),
     `password` VARCHAR(255),
     `role` VARCHAR(20)
