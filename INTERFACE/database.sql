@@ -39,8 +39,8 @@ create table users(
 	`street_address` varchar(100),
 	`phone` int(8),
 	`salary` int not null,
-    `username` VARCHAR(50),
-    `password` VARCHAR(255),
+    `username` VARCHAR(20),
+    `password` VARCHAR(20),
     `role` VARCHAR(20)
 
 );
@@ -49,7 +49,7 @@ create table users(
 create table paymenttypes(
 
 	id int not null auto_increment primary key,
-	`name` varchar(50),
+	`name` varchar(50) not null,
 	`description` varchar(255)
 
 );
@@ -82,7 +82,7 @@ create table discounts(
 
 );
 
-/* tipop de proveedor */
+/* tipo de proveedor */
 create table suppliertypes(
 
 	id int not null auto_increment primary key,
@@ -109,8 +109,8 @@ create table products(
 	`name` nvarchar(100) not null,
 	`description` text,
 	`stock` int not null,
-	`admissiondate` datetime not null,
-	`unitprice` int not null,
+	`admission_date` datetime not null,
+	`unit_price` int not null,
 	`productcategory_id` int not null,
 	`discount_id` int not null,
 	`supplier_id` int not null
@@ -120,8 +120,9 @@ create table products(
 create table billings(
 
 	id int not null auto_increment primary key,
-	`date` datetime,
+	`date` datetime not null,
 	`user_id` int not null,
+	`client_id` int not null,
 	`paymenttype_id` int not null,
 	`invoicetype_id` int not null,
 	`product_id` int not null,
@@ -159,4 +160,3 @@ create table `logs`(
 /*
 Tablas merge join or join table
 */
-
