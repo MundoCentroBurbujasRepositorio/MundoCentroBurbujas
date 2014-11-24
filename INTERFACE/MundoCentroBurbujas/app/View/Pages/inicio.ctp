@@ -1,4 +1,6 @@
-<?php echo $this->element('menu'); ?>
+<?php
+$this->layout = 'home';
+?>
 
 <div id="content">
     <div id="sidebar">

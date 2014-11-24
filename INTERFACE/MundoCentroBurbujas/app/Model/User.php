@@ -5,21 +5,52 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+App::uses('AppModel', 'Model');
 App::uses('BlowfishPasswordHasher', 'Controller/Component/Auth');
 
 class User extends AppModel {
 
+    public $hasMany = array('Log' => array(
+            'className' => 'Log',
+            'foreignKey' => 'user_id',
+            'dependent' => true
+    ));
     public $validate = array(
+        'nis' => array(
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => 'Debe de completar el número de cédula'
+            )
+        ),
+        'name' => array(
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => 'Debe de completar el espacio para su nombre'
+            )
+        ),
+        'last_name' => array(
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => 'Debe ingresar su apellido'
+            )
+        ),
+        'salary' => array(
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => 'Debe ingresar el salario para el Usuario'
+            )
+        ),
         'username' => array(
             'required' => array(
                 'rule' => array('notEmpty'),
-                'message' => 'A username is required'
+                'message' => 'Es necesario un nombre de usuario'
             )
         ),
         'password' => array(
             'required' => array(
                 'rule' => array('notEmpty'),
-                'message' => 'A password is required'
+                'message' => 'El espacio de Contraseña no puede estar vacio'
             )
         ),
         'role' => array(
@@ -31,6 +62,7 @@ class User extends AppModel {
         )
     );
 
+//para evitar errores de blowflish hay que dejar un string mas grande en la base de datos
     public function beforeSave($options = array()) {
         // if ID is not set, we're inserting a new user as opposed to updating
         if (!$this->id) {

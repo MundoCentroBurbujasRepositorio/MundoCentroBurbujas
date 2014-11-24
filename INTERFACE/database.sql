@@ -25,7 +25,8 @@ create table clients (
 	`name` varchar(50) not null,
 	`street_address` varchar(100),
 	`phone` int(8),
-	`clienttype_id` int not null
+	`clienttype_id` int not null,
+    constraint fk_tipoCliente_clients foreign key (clienttype_id) references clienttypes(id)
 
 );
 
@@ -39,9 +40,9 @@ create table users(
 	`street_address` varchar(100),
 	`phone` int(8),
 	`salary` int not null,
-    `username` VARCHAR(20),
-    `password` VARCHAR(20),
-    `role` VARCHAR(20)
+    `username` VARCHAR(20) unique,
+    `password` VARCHAR(100) not null,
+    `role` VARCHAR(20) not null
 
 );
 
@@ -99,7 +100,8 @@ create table suppliers(
 	`street_address` varchar(255),
 	`phone` int(8),
 	`suppliertype_id` int not null,
-	`send_way` varchar(255) not null
+	`send_way` varchar(255) not null,
+    constraint fk_tipoProveedor_suppliers foreign key (suppliertype_id) references suppliertypes(id)
 );
 
 /* productos */
@@ -113,7 +115,10 @@ create table products(
 	`unit_price` int not null,
 	`productcategory_id` int not null,
 	`discount_id` int not null,
-	`supplier_id` int not null
+	`supplier_id` int not null,
+    constraint fk_categoriaProducto_products foreign key (productcategory_id) references productcategories(id),
+    constraint fk_descuento_products foreign key (discount_id) references discounts(id),
+    constraint fk_proveedor_products foreign key (supplier_id) references suppliers(id)
 );
 
 /* facturaciones */
@@ -126,7 +131,12 @@ create table billings(
 	`paymenttype_id` int not null,
 	`invoicetype_id` int not null,
 	`product_id` int not null,
-	`total` int not null
+	`total` int not null,
+    constraint fk_usuario_billings foreign key (user_id) references users(id),
+    constraint fk_cliente_billings foreign key (client_id) references clients(id),
+    constraint fk_tipoPago_billings foreign key (paymenttype_id) references paymenttypes(id),
+    constraint fk_tipoFactura_billings foreign key (invoicetype_id) references invoicetypes(id),
+    constraint fk_producto_billings foreign key (product_id) references products(id)    
 
 );
 
@@ -140,7 +150,11 @@ create table orders(
 	`supplier_id` int not null,
 	`product_id` int not null,
 	`total` int not null,
-	`paymenttype_id` int not null
+	`paymenttype_id` int not null,
+    constraint fk_proveedor_Orders foreign key (supplier_id) references suppliers(id) ,
+    constraint fk_producto_Orders foreign key (product_id) references products(id),
+    constraint fk_tipoPago_Orders foreign key (paymenttype_id) references paymenttypes(id)
+    
 );
 
 /*Registros de usuarios(log)*/
@@ -152,11 +166,12 @@ create table `logs`(
 	ip_address text not null,
 	`user_id` int not null,
 	`action` text not null,
-	date_action datetime not null
+	date_action datetime not null,
+    constraint fk_usuario_Logs foreign key (user_id) references users(id)
 	
 
 );
 
-/*
-Tablas merge join or join table
-*/
+
+insert into users values (null,'604150516','Jeison Andres','Cespedes Morales','Guapiles',88082485,100000,'jeitae','$2a$10$y8px5pmx1gaYSMNK6.jo/Oxwzt0fr.jCg2vlEIak4I6Atsmvmz7Xi','admin');
+

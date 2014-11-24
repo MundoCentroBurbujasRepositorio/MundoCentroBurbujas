@@ -1,5 +1,6 @@
-<div style="margin-top: 8%;"></div>
-
+<?php
+$this->layout = 'home';
+?>
 <div class="vista">
     <h2>Usuarios</h2>
     <?php echo $this->Html->link('Agregar Usuarios', array('action' => 'add')); ?>
@@ -51,5 +52,5 @@
         
     </div>
     
-    <?php echo $this->Html->link('Volver al menu', array('action' => 'index')); ?>
+    <?php echo $this->Html->link('Volver al menu', array('controller'=> 'pages', 'action' => 'admin')); ?>
 </div>

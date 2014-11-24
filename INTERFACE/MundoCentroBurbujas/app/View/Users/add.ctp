@@ -1,4 +1,7 @@
-<div style="margin-top: 8%;"></div>
+<?php
+$this->layout = 'home';
+?>
+
 <div class="add"> 
     <?php
     echo $this->Form->create('User');
@@ -15,12 +18,12 @@
         <?php echo $this->Form->input('salary', array('label' => 'Salario')); ?>
         <?php echo $this->Form->input('username', array('label' => 'Nombre Usuario')); ?>
         <?php echo $this->Form->input('password', array('label' => 'Contraseña')); ?>
-        <?php echo $this->Form->input('role',array('options' => array('admin' => 'admin', 'employee' => 'employee'),'label' => 'Perimisos')); ?>
+        <?php echo $this->Form->input('role',array('options' => array('admin' => 'Administrador', 'employee' => 'Empleado'),'label' => 'Perimiso de Usuario')); ?>
 
 
     </fieldset>
     <?php
     echo $this->Form->end('Guardar Usuario');
-    echo $this->Html->link('Ver usuarios', array('action' => 'vista'));
+    echo $this->Html->link('Ver usuarios', array('action' => 'view'));
     ?>
 </div>

@@ -55,7 +55,7 @@ class AppController extends Controller {
     /*Permite lo que se puede o no ver dependiendo de si esta logueado*/
 
     public function beforeFilter() {
-        $this->Auth->allow('add', 'view');
+        $this->Auth->allow('updates', 'index');
     }
     
 }

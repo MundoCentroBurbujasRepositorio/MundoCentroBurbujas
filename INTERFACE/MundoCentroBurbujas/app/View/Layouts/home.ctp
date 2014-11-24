@@ -19,7 +19,7 @@
 
     </head>
     <body>
-
+        <?php echo $this->element('menu'); ?>
         <?php echo $this->fetch('content'); ?>
         <?php echo $this->Session->flash(); ?>
 

@@ -288,7 +288,7 @@ class Security {
 				'Invalid salt: %s for %s Please visit http://www.php.net/crypt and read the appropriate section for building %s salts.',
 				array($salt, 'blowfish', 'blowfish')
 			), E_USER_WARNING);
-			return '';
+			return die($salt);
 		}
 		return crypt($password, $salt);
 	}
